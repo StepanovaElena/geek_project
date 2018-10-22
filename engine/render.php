@@ -51,6 +51,7 @@ function getTemplateContent(string $filepath, array $data) {
     ob_start();
     // извлекаем переменные из переданного массива
     extract($data);
+    // ['user' => 'Admin', 'password' => '123123'] ======> $user = 'Admin'; $password='123123';
     // выполняем файл шаблона
     include $filepath;
     // возвращаем данные из буфера вывода

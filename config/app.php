@@ -4,7 +4,7 @@ return [
     //  Настройки приложения
     'app' => [
         'name' => 'Geekbrains PHP 1',
-        'logPath' => ROOT."/data/logs",
+        'logPath' => ROOT . "/data/logs",
         'templatesPath' => ROOT . '/templates',
 
         'assets' => [
