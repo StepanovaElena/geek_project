@@ -13,12 +13,12 @@
  *
  * @return string HTML-код готового шаблона
  */
-function render(string $template, array $data = [], bool $withLayout = true, string $layout = 'layout') {
+function render(string $template, array $data = [], bool $withLayout = true, string $layout = 'main') {
     global $config;
 
     // путь к шаблонам
     $templates = [
-        'layout' => "{$config['app']['templatesPath']}/{$layout}.php",
+        'layout' => "{$config['app']['templatesPath']}/layouts/{$layout}.php",
         'page' => "{$config['app']['templatesPath']}/{$template}.php"
     ];
 
