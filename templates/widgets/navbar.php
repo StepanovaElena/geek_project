@@ -2,6 +2,10 @@
 
 $items = [
     ['label' => 'Home', 'url' => '/'],
+    ['label' => 'Reviews', 'url' => '/reviews.php'],
+    ['label' => 'Login', 'url' => '/user.php', 'role' => '?'],
+    ['label' => 'Profile', 'url' => '/user.php', 'role' => '@'],
+    ['label' => 'Logout', 'url' => '/user.php?action=logout', 'role' => '@'],
 ];
 
 ?>
@@ -14,9 +18,17 @@ $items = [
     <div class="collapse navbar-collapse navbar-right" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <?php foreach ($items as $link) : ?>
-            <li class="nav-item">
-                <a class="nav-link" href="<?= $link['url'] ?>"><?= $link['label'] ?></a>
-            </li>
+                <?php if (isset($link['role'])): ?>
+                    <?php if (userHasRole($link['role'])): ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= $link['url'] ?>"><?= $link['label'] ?></a>
+                        </li>
+                    <?php endif ?>
+                <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= $link['url'] ?>"><?= $link['label'] ?></a>
+                    </li>
+                <?php endif ?>
             <?php endforeach; ?>
         </ul>
     </div>
